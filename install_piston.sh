@@ -64,6 +64,7 @@ cp /root/config-files/docker-compose.yaml /root/piston/
 
 # Open piston folder and run docker compose command
 # Start the API container
+cd piston
 docker compose up -d api
 
 # Install all the dependencies for the cli
