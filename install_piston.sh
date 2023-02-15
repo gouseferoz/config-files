@@ -4,9 +4,11 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
 
 echo -e "${RED}Starting the Script...${NC}"
 
+cd ~
 
 # Update apt package index
 sudo apt-get update
@@ -95,13 +97,15 @@ sudo unlink /etc/nginx/sites-enabled/default
 
 cp /root/config-files/reverse-proxy.conf /etc/nginx/sites-available/
 
+echo -e "${GREEN}Copied the Reverse Proxy file${NC}"
+
 sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
 
 service nginx configtest
 
 service nginx restart
 
-echo "Installing Piston"
+echo -e "${GREEN}Installing Piston${NC}"
 
 # install all the piston languages
 
