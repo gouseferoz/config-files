@@ -81,7 +81,7 @@ sudo systemctl stop nginx
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'ssh'
 
-sudo ufw enable
+sudo ufw enable -y
 
 sudo unlink /etc/nginx/sites-enabled/default
 
