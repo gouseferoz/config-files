@@ -1,5 +1,12 @@
 #!/bin/bash
-echo "Starting the script..."
+
+# Define color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+
+echo -e "${RED}Starting the Script...${NC}"
+
 
 # Update apt package index
 sudo apt-get update
@@ -33,7 +40,7 @@ sudo apt-get update
 # Install Docker Engine, containerd, and Docker Compose
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-echo "Installed Docker"
+echo -e "${GREEN}Installed Docker${NC}"
 
 # Download and setup the Node.js 16 repository
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -41,7 +48,7 @@ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 # Install Node.js and npm
 sudo apt-get install -y nodejs
 
-echo "Installed Nodejs"
+echo -e "${GREEN}Installed Nodejs${NC}"
 
 # Verify the installation by checking the Node.js and npm version
 node -v
@@ -53,7 +60,7 @@ cd ~
 # clone and enter repo
 git clone https://github.com/engineer-man/piston
 
-echo "Cloned the Piston"
+echo -e "${GREEN}Cloned the Piston${NC}"
 
 # # clone the config-files from gouseferoz github
 # git clone https://github.com/gouseferoz/config-files.git
