@@ -93,6 +93,14 @@ sudo ufw allow 'ssh'
 
 sudo ufw enable -y
 
+echo -e "${GREEN}Installing Piston${NC}"
+
+# install all the piston languages
+
+cd /root/piston
+
+cli/index.js ppman install python && cli/index.js ppman install gcc && cli/index.js ppman install java &&	cli/index.js ppman install dotnet && cli/index.js ppman install typescript &&	cli/index.js ppman install scala &&	cli/index.js ppman install rscript &&	cli/index.js ppman install sqlite3 && cli/index.js ppman install node
+
 sudo unlink /etc/nginx/sites-enabled/default
 
 cp /root/config-files/reverse-proxy.conf /etc/nginx/sites-available/
@@ -105,10 +113,11 @@ service nginx configtest
 
 service nginx restart
 
-echo -e "${GREEN}Installing Piston${NC}"
+echo -e "${GREEN}Restarted the NGINX${NC}"
 
-# install all the piston languages
+cd ~
+cd piston
+docker compose down
+docker compose up -d api
 
-cd /root/piston
-
-cli/index.js ppman install python && cli/index.js ppman install gcc && cli/index.js ppman install java &&	cli/index.js ppman install dotnet && cli/index.js ppman install typescript &&	cli/index.js ppman install scala &&	cli/index.js ppman install rscript &&	cli/index.js ppman install sqlite3 && cli/index.js ppman install node
+echo -e "${GREEN}Restarted the Docker${NC}"
