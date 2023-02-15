@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Starting the script..."
 
 # Update apt package index
 sudo apt-get update
@@ -32,11 +33,15 @@ sudo apt-get update
 # Install Docker Engine, containerd, and Docker Compose
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+echo "Installed Docker"
+
 # Download and setup the Node.js 16 repository
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 # Install Node.js and npm
 sudo apt-get install -y nodejs
+
+echo "Installed Nodejs"
 
 # Verify the installation by checking the Node.js and npm version
 node -v
@@ -48,8 +53,12 @@ cd ~
 # clone and enter repo
 git clone https://github.com/engineer-man/piston
 
-# clone the config-files from gouseferoz github
-git clone https://github.com/gouseferoz/config-files.git
+echo "Cloned the Piston"
+
+# # clone the config-files from gouseferoz github
+# git clone https://github.com/gouseferoz/config-files.git
+
+# echo "Cloned the Config Files"
 
 cp /root/config-files/docker-compose.yaml /root/piston/
 
@@ -70,6 +79,7 @@ sudo apt-get install nginx -y
 sudo systemctl stop nginx
 
 sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'ssh'
 
 sudo ufw enable
 
@@ -82,6 +92,8 @@ sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enable
 service nginx configtest
 
 service nginx restart
+
+echo "Installing Piston"
 
 # install all the piston languages
 
