@@ -99,7 +99,7 @@ echo -e "${GREEN}Installing Piston${NC}"
 
 cd /root/piston
 
-cli/index.js ppman install python && cli/index.js ppman install gcc && cli/index.js ppman install java &&	cli/index.js ppman install dotnet && cli/index.js ppman install typescript &&	cli/index.js ppman install scala &&	cli/index.js ppman install rscript &&	cli/index.js ppman install sqlite3 && cli/index.js ppman install node && cli/index.js ppman install ruby
+cli/index.js ppman install python && cli/index.js ppman install gcc && cli/index.js ppman install java &&	cli/index.js ppman install dotnet && cli/index.js ppman install typescript &&	cli/index.js ppman install scala &&	cli/index.js ppman install rscript &&	cli/index.js ppman install sqlite3 && cli/index.js ppman install node && cli/index.js ppman install ruby && cli/index.js ppman install python=3.10.0 && cli/index.js ppman install go
 
 sudo unlink /etc/nginx/sites-enabled/default
 
