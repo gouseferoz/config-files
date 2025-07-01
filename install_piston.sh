@@ -45,7 +45,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 echo -e "${GREEN}Installed Docker${NC}"
 
 # Download and setup the Node.js 16 repository
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 
 # Install Node.js and npm
 sudo apt-get install -y nodejs
